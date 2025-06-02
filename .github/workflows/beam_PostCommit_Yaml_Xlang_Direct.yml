@@ -74,10 +74,8 @@ jobs:
         uses: ./.github/actions/setup-environment-action
         with:
           python-version: default
-      - name: Authenticate on GCP
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
       - name: run PostCommit Yaml Xlang Direct script
         uses: ./.github/actions/gradle-command-self-hosted-action
         with:
