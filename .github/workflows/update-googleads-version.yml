@@ -16,6 +16,9 @@
 name: Upgrade Google Ads Version
 
 on:
+  push:
+    branches:
+      - 20261012_adsVersionUpgrade
   schedule:
     - cron: "0 0 1 * *" # Monthly on the 1st at 00:00 UTC
   workflow_dispatch:
@@ -33,7 +36,7 @@ concurrency:
 
 jobs:
   upgrade_google_ads:
-    runs-on: [self-hosted, ubuntu-24.04, main]
+    runs-on: ubuntu-24.04
     name: Upgrade Google Ads
     steps:
       - name: Checkout code
